@@ -9,7 +9,7 @@ library("ggplot2")
 
 imapct_factor<-read.csv("JCR_impact_factor.csv",header=T)
 
-search_topic <- 'Circadian clock'  #'circadian [and] modelling' #'molecular [AND] Clock'
+search_topic <- 'Circadian clock' 
 
 year_start=1970
 year_stop=2018
