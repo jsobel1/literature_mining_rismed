@@ -4,12 +4,18 @@ library("RISmed")
 library("doBy")
 library("reshape")
 library("plyr")
-require("plotrix") 
-library("ggplot2")
+#require("plotrix") 
+#library("ggplot2")
+
+if (Sys.getenv("JAVA_HOME")!="")
+  Sys.setenv(JAVA_HOME="")
+library(rJava)
+
+library("xlsx")
 
 imapct_factor<-read.csv("JCR_impact_factor.csv",header=T)
 
-search_topic <- 'Circadian clock' 
+search_topic <- 'Cyanobacteria [AND] circadian' 
 
 year_start=1970
 year_stop=2018
@@ -115,13 +121,6 @@ save(autors_table_clean,file=paste("pubmed_authors",search_topic,year_start,year
 
 ############################################################################
 ############################################################################
-
-if (Sys.getenv("JAVA_HOME")!="")
-  Sys.setenv(JAVA_HOME="")
-library(rJava)
-
-library("xlsx")
-
 
 pubmed_data_sel=pubmed_data[which(pubmed_data$Cited>2),]
 
